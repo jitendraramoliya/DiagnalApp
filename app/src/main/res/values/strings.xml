@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Diagnal</string>
+    <string name="search_title">Search</string>
+    <string name="search_hint">Search movie</string>
+    <string name="title_activity_main">Romantic Comedy</string>
+    <string name="search_movie">Search Movie</string>
+</resources>
