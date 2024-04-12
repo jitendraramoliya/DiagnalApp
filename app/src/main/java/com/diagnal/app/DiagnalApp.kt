@@ -3,7 +3,7 @@ package com.diagnal.app
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
-@HiltAndroidApp
+@HiltAndroidApp // Hilt is used as DI
 class DiagnalApp : Application() {
 
 

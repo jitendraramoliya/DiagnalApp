@@ -11,7 +11,7 @@ public class GridSpacingItemDecoration(
     private var spacing: Int = 30,
     private val includeEdge: Boolean = true
 ) :
-    ItemDecoration() {
+    ItemDecoration() { // Grid Item Decoration
     override fun getItemOffsets(
         outRect: Rect,
         view: View,

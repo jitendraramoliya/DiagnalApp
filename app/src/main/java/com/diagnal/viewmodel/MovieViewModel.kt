@@ -19,7 +19,7 @@ class MovieViewModel @Inject constructor(private val movieRepository: MovieRepos
     public val movieMutableList: LiveData<AssetResult<MovieResponse>>
         get() = _movieMutableList
 
-    fun getProductList(pageNo: Int) {
+    fun getProductList(pageNo: Int) { // Fetching movie list
         viewModelScope.launch {
             val response = movieRepository.getMovieList("CONTENTLISTINGPAGE_PAGE$pageNo.json")
             if (response != null && response.page?.content_items?.content?.isNotEmpty() == true && response.page?.content_items?.content?.size!! > 0) {

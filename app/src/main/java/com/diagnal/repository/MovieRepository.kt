@@ -8,12 +8,14 @@ import javax.inject.Inject
 
 class MovieRepository @Inject constructor (@ApplicationContext val appContext: Context) {
 
+    // This repository used to fetch asset json files for movie
+
     suspend fun getMovieList(filename:String): MovieResponse? {
         return getMovieListFromAsset(filename)
     }
 
     private fun getMovieListFromAsset(fileName: String): MovieResponse? {
-
+        // Getting movie list from json
         if(fileName.isNotEmpty()) {
             val response: String = appContext.assets.open(fileName).bufferedReader().use { it.readText() }
             return Gson().fromJson(response, MovieResponse::class.java)

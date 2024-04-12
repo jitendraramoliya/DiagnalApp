@@ -39,8 +39,8 @@ class MovieListActivity : AppCompatActivity() {
 
     private fun initViews() {
 
+        // adding movie adapter
         binding.rvMovie.layoutManager = getLayoutManager()
-
         adapterMovie = MovieAdapter(applicationContext)
         binding.rvMovie.adapter = adapterMovie
         binding.rvMovie.addOnScrollListener(recyclerViewOnScrollListener)
@@ -80,7 +80,7 @@ class MovieListActivity : AppCompatActivity() {
 
     }
 
-    private fun handleObserver() {
+    private fun handleObserver() { // Getting movie list
         movieViewModel.movieMutableList.observe(this) {
             when (it) {
                 is AssetResult.Error -> {
@@ -112,7 +112,7 @@ class MovieListActivity : AppCompatActivity() {
         return GridLayoutManager(this, spanCount)
     }
 
-    private val recyclerViewOnScrollListener = object : RecyclerView.OnScrollListener() {
+    private val recyclerViewOnScrollListener = object : RecyclerView.OnScrollListener() { // Pagination
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             super.onScrolled(recyclerView, dx, dy)
             val layoutManager = recyclerView.layoutManager as GridLayoutManager

@@ -30,13 +30,14 @@ class MovieAdapter(private val appContext: Context) :
     }
 
     fun submitList(movieList: List<Movie>) {
-//        listFiltered.clear()
+        // Adding movie in list
         list.addAll(movieList)
         listFiltered.addAll(movieList)
         notifyDataSetChanged()
     }
 
     fun setSearchText(searchText: String) {
+        // filter movie base on text
         listFiltered.clear()
         if (searchText.isNullOrEmpty()) {
             listFiltered.addAll(list)
@@ -51,7 +52,8 @@ class MovieAdapter(private val appContext: Context) :
         fun setItem(appContext: Context, movieItem: Movie) {
             binding.tvName.text = movieItem.name
             binding.tvName.isSelected = true
-            movieItem.poster_image?.let {
+
+            movieItem.poster_image?.let {// Movie Image
                 Glide.with(itemView.context).load(getImage(appContext, it))
                     .placeholder(R.drawable.placeholder_for_missing_posters)
                     .error(R.drawable.placeholder_for_missing_posters)
@@ -61,6 +63,7 @@ class MovieAdapter(private val appContext: Context) :
         }
 
         private fun getImage(appContext: Context, imageName: String?): Int {
+            // Getting image by dynamic id
             val movieId = imageName?.replace(".jpg", "")
             return appContext.resources.getIdentifier(movieId, "drawable", appContext.packageName)
         }
